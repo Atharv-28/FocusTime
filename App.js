@@ -1,32 +1,32 @@
-import { Text, SafeAreaView, StyleSheet } from 'react-native';
-
-// You can import supported modules from npm
-import { Card } from 'react-native-paper';
-
-// or any files within the Snack
-import AssetExample from './components/AssetExample';
+import React, {useState} from 'react';
+import { Text, View, SafeAreaView, StyleSheet, Platform, StatusBar } from 'react-native';
+import {colors} from './components/utils/Colors'
+import {Focus} from './components/features/focus'
+import {RoundedButton} from './components/utils/roundedButton'
 
 export default function App() {
+    const [currentSubject, setCurrentSubject] = useState(null)
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.paragraph}>
-        Hello World
-      </Text>
+    <SafeAreaView style={styles.home}>
+      <Focus addSubject={setCurrentSubject} />
+      {!currentSubject ?(
+        <Text style={styles.text}>No Tasks</Text>
+      ):(
+        <View>
+          <Text style={styles.text}>{currentSubject}</Text>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-    padding: 8,
+  home: {
+    flex : 1,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    backgroundColor :colors.lightBlue,
   },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
+  text:{
+    color : colors.white,
+  }
 });
