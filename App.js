@@ -9,11 +9,11 @@ export default function App() {
     const [currentSubject, setCurrentSubject] = useState(null)
   return (
     <SafeAreaView style={styles.home}>
-      <Focus addSubject={setCurrentSubject} />
+      <Focus style={styles.focus} addSubject={setCurrentSubject} />
       {!currentSubject ?(
         <Text style={styles.text}>No Tasks</Text>
       ):(
-        <Timer 
+        <Timer style={styles.tasks}
           focusSubject = {currentSubject}
           onTimerEnd = {() => {}}
           clearSubject = {() => {}}
@@ -31,5 +31,11 @@ const styles = StyleSheet.create({
   },
   text:{
     color : colors.white,
+  },
+  focus:{
+    borderColor: colors.orange,
+  },
+  tasks:{
+    flex: 1,
   }
 });
