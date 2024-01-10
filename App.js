@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Text, View, SafeAreaView, StyleSheet, Platform, StatusBar } from 'react-native';
 import {colors} from './components/utils/Colors'
 import {Focus} from './components/features/focus'
+import {Timer} from './components/features/Timer'
 import {RoundedButton} from './components/utils/roundedButton'
 
 export default function App() {
@@ -12,9 +13,11 @@ export default function App() {
       {!currentSubject ?(
         <Text style={styles.text}>No Tasks</Text>
       ):(
-        <View>
-          <Text style={styles.text}>{currentSubject}</Text>
-        </View>
+        <Timer 
+          focusSubject = {currentSubject}
+          onTimerEnd = {() => {}}
+          clearSubject = {() => {}}
+        />
       )}
     </SafeAreaView>
   );

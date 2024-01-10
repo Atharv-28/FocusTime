@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
-import { fontSizes, spacing } from '../utils/sizes';
+import { fontSizes, spacing } from '../utils/sizes.js';
 import { colors } from '../utils/Colors';
 
 const minutesToMillis = (min) => min * 1000 * 60;
