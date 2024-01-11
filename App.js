@@ -6,7 +6,7 @@ import {Timer} from './components/features/Timer'
 import {RoundedButton} from './components/utils/roundedButton'
 
 export default function App() {
-    const [currentSubject, setCurrentSubject] = useState(null)
+    const [currentSubject, setCurrentSubject] = useState('test')
   return (
     <SafeAreaView style={styles.home}>
       <Focus style={styles.focus} addSubject={setCurrentSubject} />
