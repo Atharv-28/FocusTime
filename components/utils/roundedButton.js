@@ -5,7 +5,7 @@ import { colors } from './Colors';
 export const RoundedButton = ({
   style = {},
   textStyle = {},
-  size = 70,
+  size = 50,
   ...props
 }) => {
   return (
@@ -19,9 +19,9 @@ export const RoundedButton = ({
 
 const styles = (size) => ({
   radius: {
-    borderRadius: 15,
-    width: 70,
-    height: 60,
+    borderRadius: 100,
+    width: 80,
+    height: 80,
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: colors.white,
@@ -29,5 +29,5 @@ const styles = (size) => ({
   },
   text: { 
     color: colors.white,
-    fontSize: 60 },
+    fontSize: 25 },
 });

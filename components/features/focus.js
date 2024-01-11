@@ -23,7 +23,10 @@ const styles = StyleSheet.create({
     flex : 1,
   },
   inputField: {
+    flex: 1,
     width : 260,
+    height : 70,
+    backgroundColor : colors.white,
   },
   buttView: {
     alignItems: 'center',
@@ -38,6 +41,8 @@ const styles = StyleSheet.create({
   },
   button: {
     justifyContent: 'center',
+    height: 50,
+    width: 70,
   },
   text: {
     color : colors.white,

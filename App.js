@@ -9,9 +9,9 @@ export default function App() {
     const [currentSubject, setCurrentSubject] = useState('test')
   return (
     <SafeAreaView style={styles.home}>
-      <Focus style={styles.focus} addSubject={setCurrentSubject} />
       {!currentSubject ?(
-        <Text style={styles.text}>No Tasks</Text>
+        <Focus style={styles.focus} addSubject={setCurrentSubject} />
+        //<Text style={styles.text}>No Tasks</Text>
       ):(
         <Timer style={styles.tasks}
           focusSubject = {currentSubject}
