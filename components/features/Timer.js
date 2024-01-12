@@ -8,12 +8,16 @@ import {colors} from '../utils/Colors'
 
 export const Timer = ({ focusSubject }) => {
   const [isStarted, setIsStarted] = useState(false);
+  const [progress, setProgress] = useState(1);
+
+
+
   return (
     <View style={styles.container}>
       <View style={styles.countdown}>
         <Countdown
           isPaused={!isStarted}
-          onProgress={() => {}}
+          onProgress={setProgress}
           onEnd={() => {}}
         />
       <View style={{paddingTop: spacing.xxl}}>
@@ -22,7 +26,7 @@ export const Timer = ({ focusSubject }) => {
       </View>
       </View>
       <View style={{paddingTop: spacing.sm}}>
-        <ProgressBar color={colors.orange} style={{height:10}} />
+        <ProgressBar progress={progress} color={colors.dBlue} style={{height:10}} />
       </View>
       <View style={styles.buttonWrapper}>
         {!isStarted && (
