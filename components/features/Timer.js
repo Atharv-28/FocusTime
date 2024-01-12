@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { ProgressBar } from 'react-native-paper';
 import { Countdown } from './Countdown';
 import { RoundedButton } from '../utils/roundedButton';
 import { spacing } from '../utils/sizes';
@@ -19,6 +20,9 @@ export const Timer = ({ focusSubject }) => {
         <Text style={styles.title}> Focusing On: </Text>
         <Text style={styles.task}>{focusSubject}</Text>
       </View>
+      </View>
+      <View style={{paddingTop: spacing.sm}}>
+        <ProgressBar color={colors.orange} style={{height:10}} />
       </View>
       <View style={styles.buttonWrapper}>
         {!isStarted && (
