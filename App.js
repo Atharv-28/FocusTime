@@ -4,18 +4,22 @@ import {colors} from './components/utils/Colors'
 import {Focus} from './components/features/focus'
 import {Timer} from './components/features/Timer'
 import {RoundedButton} from './components/utils/roundedButton'
+import {FocusHistory} from './components/features/FocusHistory'
 
 export default function App() {
-    const [currentSubject, setCurrentSubject] = useState('test')
+    const [currentSubject, setCurrentSubject] = useState();
+    const [history, setHistory] = useState([]);
   return (
     <SafeAreaView style={styles.home}>
       {!currentSubject ?(
-        <Focus style={styles.focus} addSubject={setCurrentSubject} />
-        //<Text style={styles.text}>No Tasks</Text>
+        <>
+        <Focus addSubject={setCurrentSubject} />
+        <FocusHistory history={history} />
+        </>
       ):(
         <Timer style={styles.tasks}
           focusSubject = {currentSubject}
-          onTimerEnd = {() => {}}
+          onTimerEnd = {(subject) => {setHistory([...history, subject])}}
           clearSubject = {() => setCurrentSubject(null)}
         />
       )}
@@ -28,14 +32,5 @@ const styles = StyleSheet.create({
     flex : 1,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     backgroundColor :colors.lightBlue,
-  },
-  text:{
-    color : colors.white,
-  },
-  focus:{
-    borderColor: colors.orange,
-  },
-  tasks:{
-    flex: 1,
   }
 });
